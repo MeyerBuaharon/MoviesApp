@@ -1,20 +1,14 @@
 import React, { useState, useEffect } from "react";
-import {
-  ScrollView,
-  Modal,
-  View,
-  Text,
-  TouchableHighlight,
-} from "react-native";
+import { ScrollView, Modal } from "react-native";
 import styled from "styled-components";
-import axios from "axios";
-
+import { getMovies } from "../../shared/api";
+import { useDispatch, useSelector } from "react-redux";
 import { MovieItem } from "../../shared/styles";
 import MovieDetailsScreen from "../../shared/Screens/MovieDetailsScreen";
-
+import actions from "../../shared/store/actions";
 const Root = styled.View`
   background: #eee;
-  margin-top: 90px;
+  margin-top: 30px;
 `;
 
 const Title = styled.Text`
@@ -23,28 +17,20 @@ const Title = styled.Text`
 `;
 
 const MoviesScreen = () => {
-  const [data, setData] = useState();
+  const data = useSelector((state) => state.movies);
+  const dispatch = useDispatch();
   const [modalVisible, setModalVisible] = useState(false);
   const [modalId, setModalId] = useState();
   const [choosenMovie, setChoosenMovie] = useState();
 
   useEffect(() => {
-    console.log("fetchedData");
-    const fetchData = async () => {
-      const result = await axios(
-        "https://api.themoviedb.org/3/movie/popular/?api_key=c807c5adddcfff593a2d33533086273b"
-      );
-
-      setData(result.data.results);
-    };
-
-    fetchData();
-
+    dispatch(actions.fetchMovies());
+  }, []);
+  useEffect(() => {
     if (modalId) {
       setChoosenMovie(data.find((item) => item.id === modalId));
     }
-  }, [modalId]);
-
+  }, [setChoosenMovie, modalId, data]);
   return (
     <Root>
       <Modal

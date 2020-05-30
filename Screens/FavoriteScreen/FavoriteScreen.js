@@ -5,16 +5,18 @@ import {
   View,
   Text,
   TouchableHighlight,
+  AsyncStorage,
 } from "react-native";
 import styled from "styled-components";
 import axios from "axios";
 
 import { MovieItem } from "../../shared/styles";
 import MovieDetailsScreen from "../../shared/Screens/MovieDetailsScreen";
+import { useSelector, useDispatch } from "react-redux";
 
 const Root = styled.View`
   background: #eee;
-  margin-top: 90px;
+  margin-top: 50px;
 `;
 
 const Title = styled.Text`
@@ -23,28 +25,15 @@ const Title = styled.Text`
 `;
 
 const FavoriteScreen = () => {
-  const [data, setData] = useState();
+  const favorites = useSelector((state) => state.favorites);
   const [modalVisible, setModalVisible] = useState(false);
   const [modalId, setModalId] = useState();
   const [choosenMovie, setChoosenMovie] = useState();
-
   useEffect(() => {
-    console.log("fetchedData");
-    const fetchData = async () => {
-      const result = await axios(
-        "https://api.themoviedb.org/3/movie/popular/?api_key=c807c5adddcfff593a2d33533086273b"
-      );
-
-      setData(result.data.results);
-    };
-
-    fetchData();
-
     if (modalId) {
-      setChoosenMovie(data.find((item) => item.id === modalId));
+      setChoosenMovie(favorites.find((item) => item.id === modalId));
     }
-  }, [modalId]);
-
+  }, [modalVisible, favorites, modalId]);
   return (
     <Root>
       <Modal
@@ -68,12 +57,12 @@ const FavoriteScreen = () => {
       </Modal>
       <Title>Favorite Movies</Title>
       <ScrollView>
-        {data &&
-          data.map((item) => (
+        {favorites &&
+          favorites.map((item) => (
             <MovieItem
               key={item.id}
               id={item.id}
-              title={item.title}
+              title={item.original_title}
               poster_path={item.poster_path}
               setModalVisible={setModalVisible}
               setModalId={setModalId}

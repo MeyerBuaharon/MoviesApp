@@ -1,13 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import {
-  View,
-  TouchableHighlight,
-  Text,
-  Image,
-  ScrollView,
-  AsyncStorage,
-} from "react-native";
+import { Text } from "react-native";
+import { useDispatch } from "react-redux";
+import actions from "../store/actions";
 
 const Root = styled.View`
   background: #fff;
@@ -57,12 +52,10 @@ const AddToFavorite = styled.TouchableOpacity`
   text-align: center;
   align-items: center;
   width: 100%;
-  background: #FE434C;
+  background: #fe434c;
   border-radius: 10px;
   width: 100%;
   height: 40px;
-}
-
 `;
 
 const MovieDetailsScreen = ({
@@ -73,40 +66,16 @@ const MovieDetailsScreen = ({
   poster_path,
   release_date,
 }) => {
+  const dispatch = useDispatch();
+
   const addToFavorite = async () => {
-    try {
-      let arr = JSON.parse(await AsyncStorage.getItem("favorite")) || [];
-      const data = {
-        id: id,
-        original_title: original_title,
-        overview: overview,
-        poster_path: poster_path,
-      };
-      if (arr.find((item) => item.id === id)) {
-        arr.splice(
-          arr.findIndex((i) => i.id === id),
-          1
-        );
-      } else {
-        arr.push(data);
-      }
-
-      await AsyncStorage.setItem("favorite", JSON.stringify(arr));
-    } catch (e) {
-      console.log("Error:", e);
-    }
-
-    const getData = async () => {
-      try {
-        const value = await AsyncStorage.getItem("favorite");
-        if (value !== null) {
-          console.log(value);
-        }
-      } catch (e) {
-        // error reading value
-      }
+    const data = {
+      id: id,
+      original_title: original_title,
+      overview: overview,
+      poster_path: poster_path,
     };
-    getData();
+    dispatch(actions.addToFavorites(data));
   };
 
   return (
@@ -129,8 +98,14 @@ const MovieDetailsScreen = ({
       <Overview>
         <ReleaseDate>{`overview: ${overview}`}</ReleaseDate>
       </Overview>
-      <AddToFavorite style={{ elevation: 2 }} onPress={() => addToFavorite()}>
-        <Text>Add To Favorite</Text>
+      <AddToFavorite
+        style={{ elevation: 2 }}
+        onPress={() => {
+          addToFavorite();
+          setModalVisible(false);
+        }}
+      >
+        <Text>Move To Favorite</Text>
       </AddToFavorite>
     </Root>
   );

@@ -18,7 +18,6 @@ const LoginBtn = styled.TouchableOpacity`
   text-align: left;
   font-size: 16px;
   color: #fff;
-  elevation: 2;
 `;
 const GoogleLoginText = styled.Text`
   color: #757575;
@@ -26,6 +25,7 @@ const GoogleLoginText = styled.Text`
   font-family: Roboto;
 `;
 const GoogleLoginButton = styled(LoginBtn)`
+  margin-bottom: 40px;
   background: #eee;
   left: 0;
   display: flex;

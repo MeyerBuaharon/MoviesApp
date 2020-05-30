@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0219d8f9-8f9c-4c9b-8ec6-d6200850c93e" name="Default Changelist" comment="" />
+    <list default="true" id="0219d8f9-8f9c-4c9b-8ec6-d6200850c93e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/shared/store/actions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/store/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/store/reducers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/store/slices/favorites.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/store/slices/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shared/store/slices/movies.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Screens/AuthScreen/AuthScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/Screens/AuthScreen/AuthScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Screens/FavoriteScreen/FavoriteScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/Screens/FavoriteScreen/FavoriteScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Screens/MoviesScreen/MoviesScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/Screens/MoviesScreen/MoviesScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/Screens/MovieDetailsScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/shared/Screens/MovieDetailsScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/api/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/shared/api/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/styles/GoogleButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/shared/styles/GoogleButton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn-error.log" beforeDir="false" afterPath="$PROJECT_DIR$/yarn-error.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,6 +46,24 @@
     <configuration />
   </component>
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0219d8f9-8f9c-4c9b-8ec6-d6200850c93e" name="Default Changelist" comment="" />
+      <created>1590845161246</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1590845161246</updated>
+    </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

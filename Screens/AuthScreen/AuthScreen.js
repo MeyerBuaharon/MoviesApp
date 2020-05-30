@@ -11,7 +11,6 @@ import styled from "styled-components";
 import * as Google from "expo-google-app-auth";
 import blankProfile from "../../assets/blankProfile.png";
 import { GoogleButton } from "../../shared/styles";
-import { REACT_APP_API_KEY } from "react-native-dotenv";
 
 const Container = styled.View`
   flex: 1;
@@ -30,6 +29,11 @@ const ProfilePicture = styled.Image`
   border-radius: 250px;
 `;
 
+const Main = styled.View`
+  flex: 1;
+  justify-content: center;
+`;
+
 const Root = styled.View`
   flex: 1;
   justify-content: center;
@@ -43,7 +47,6 @@ const AuthScreen = ({ isLogin, setIsLogin }) => {
       const result = await Google.logInAsync({
         androidClientId:
           "780657892357-pm3s4eso6hukolr73aj6j29of8oqhcvj.apps.googleusercontent.com",
-
         scopes: ["profile", "email"],
       });
 
@@ -61,16 +64,18 @@ const AuthScreen = ({ isLogin, setIsLogin }) => {
   }, []);
   const LoginScreen = () => (
     <Root>
-      <WelcomeText>Welcome, {name ? name : "Stranger"}</WelcomeText>
-      <ProfilePicture
-        source={
-          profilePic
-            ? {
-                uri: profilePic,
-              }
-            : blankProfile
-        }
-      />
+      <Main>
+        <WelcomeText>Welcome, {name ? name : "Stranger"}</WelcomeText>
+        <ProfilePicture
+          source={
+            profilePic
+              ? {
+                  uri: profilePic,
+                }
+              : blankProfile
+          }
+        />
+      </Main>
       {!isLogin && <Text>please log in to continue the awesomness</Text>}
       <GoogleButton text="Sign in with google" onPress={signIn}></GoogleButton>
     </Root>
