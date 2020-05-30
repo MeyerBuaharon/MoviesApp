@@ -1,84 +1,26 @@
-import React, { useState, useCallback } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Button,
-  Image,
-  TouchableOpacity,
-} from "react-native";
-import blankProfile from "./assets/blankProfile.png";
+import React, { useState } from "react";
+
 import styled from "styled-components";
-import * as Google from "expo-google-app-auth";
-import { GoogleButton } from "./shared/styles";
-
-const Container = styled.View`
-  flex: 1;
-  background: #fff;
-  align-items: center;
-`;
-
-const WelcomeText = styled.Text`
-  font-size: 20px;
-  text-align: center;
-`;
-const ProfilePicture = styled.Image`
-  margin: 12px;
-  width: 250px;
-  height: 250px;
-  border-radius: 250px;
-`;
+import AuthScreen from "./Screens/AuthScreen/AuthScreen";
+import MoviesScreen from "./Screens/MoviesScreen/MoviesScreen";
 
 const Root = styled.View`
   flex: 1;
   justify-content: center;
 `;
 
-export default function App() {
-  const [isLogin, setIsLogin] = useState(false);
-  const [name, setName] = useState();
-  const [profilePic, setProfilePic] = useState();
+const App = () => {
+  const [isLogin, setIsLogin] = useState();
 
-  const signIn = useCallback(async () => {
-    try {
-      const result = await Google.logInAsync({
-        androidClientId:
-          "780657892357-pm3s4eso6hukolr73aj6j29of8oqhcvj.apps.googleusercontent.com",
-
-        scopes: ["profile", "email"],
-      });
-
-      if (result.type === "success") {
-        setIsLogin(true);
-        setProfilePic(result.user.photoUrl);
-        setName(result.user.name);
-        return result.accessToken;
-      } else {
-        return { cancelled: true };
-      }
-    } catch (e) {
-      return { error: true };
-    }
-  }, []);
-  const LoginScreen = () => (
+  return (
     <Root>
-      <WelcomeText>Welcome, {name ? name : "Stranger"}</WelcomeText>
-      <ProfilePicture
-        source={
-          profilePic
-            ? {
-                uri: profilePic,
-              }
-            : blankProfile
-        }
-      />
-      {!isLogin && <Text>please log in to continue the awesomness</Text>}
-      <GoogleButton text="Sign in with google" onPress={signIn}></GoogleButton>
+      {!isLogin ? (
+        <MoviesScreen></MoviesScreen>
+      ) : (
+        <AuthScreen isLogin={isLogin} setIsLogin={setIsLogin}></AuthScreen>
+      )}
     </Root>
   );
-  return (
-    <Container>
-      <LoginScreen></LoginScreen>
-    </Container>
-  );
-}
+};
+
+export default App;
