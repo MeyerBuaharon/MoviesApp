@@ -10,7 +10,7 @@ import styled from "styled-components";
 import axios from "axios";
 
 import { MovieItem } from "../../shared/styles";
-import MovieDetailsScreen from "./MovieDetailsScreen";
+import MovieDetailsScreen from "../../shared/Screens/MovieDetailsScreen";
 
 const Root = styled.View`
   background: #eee;
@@ -22,7 +22,7 @@ const Title = styled.Text`
   margin-bottom: 10px;
 `;
 
-const MoviesScreen = () => {
+const FavoriteScreen = () => {
   const [data, setData] = useState();
   const [modalVisible, setModalVisible] = useState(false);
   const [modalId, setModalId] = useState();
@@ -66,7 +66,7 @@ const MoviesScreen = () => {
           ></MovieDetailsScreen>
         )}
       </Modal>
-      <Title>Popular Movies</Title>
+      <Title>Favorite Movies</Title>
       <ScrollView>
         {data &&
           data.map((item) => (
@@ -84,4 +84,4 @@ const MoviesScreen = () => {
   );
 };
 
-export default MoviesScreen;
+export default FavoriteScreen;

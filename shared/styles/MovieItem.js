@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { View, Text, Image, TouchableOpacity } from "react-native";
 
@@ -20,15 +20,21 @@ const MovieTitle = styled.Text`
   font-size: 16px;
 `;
 
-const MovieItem = ({ id, poster_path, title }) => (
-  <Root onPress={() => console.log(id)}>
-    <PosterIcon
-      source={{
-        uri: `https://image.tmdb.org/t/p/w220_and_h330_face${poster_path}`,
+const MovieItem = ({ id, poster_path, title, setModalVisible, setModalId }) => {
+  return (
+    <Root
+      onPress={() => {
+        setModalVisible(true);
+        setModalId(id);
       }}
-    ></PosterIcon>
-    <MovieTitle>{title}</MovieTitle>
-  </Root>
-);
-
+    >
+      <PosterIcon
+        source={{
+          uri: `https://image.tmdb.org/t/p/w220_and_h330_face${poster_path}`,
+        }}
+      ></PosterIcon>
+      <MovieTitle>{title}</MovieTitle>
+    </Root>
+  );
+};
 export default MovieItem;
