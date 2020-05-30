@@ -10,7 +10,7 @@ import styled from "styled-components";
 import axios from "axios";
 
 import { MovieItem } from "../../shared/styles";
-import MovieDetailsScreen from "./MovieDetailsScreen";
+import MovieDetailsScreen from "../../shared/Screens/MovieDetailsScreen";
 
 const Root = styled.View`
   background: #eee;
