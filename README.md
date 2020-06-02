@@ -18,7 +18,7 @@ The following tree shows the structure of the components in the whole app.
 	- LogOut
 
 
-## Tech stack
+## Tech stac
 1. React-Native
 2. react-navigation
 3. reduxjs/toolkit
@@ -58,3 +58,10 @@ Posible values are: *LOADING* | *SUCCESS* | *FAILED*.
 ## Time spend
 The project has tooked me 2 days. I started with all the fetching and rendering data part for the first 6 hours.
 The other time I have, I used for the app design and making it responsive.
+
+## Project Setup
+
+In order to start the project:
+	- Open terminal .
+	- Type: yarn -> yarn start .
+	- Scan the QR code that given with your mobile device .
