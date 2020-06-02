@@ -59,9 +59,20 @@ Posible values are: *LOADING* | *SUCCESS* | *FAILED*.
 The project has tooked me 2 days. I started with all the fetching and rendering data part for the first 6 hours.
 The other time I have, I used for the app design and making it responsive.
 
+## Things to improve
+
+- Adding global styles to the project, so I could reuse it and make the code more readable instead of writing fixed numbers.(e.g. background: ${({theme})=>theme.lightBlue})
+- Making it works well with IOS users.
+
 ## Project Setup
 
 In order to start the project:
 	- Open terminal .
 	- Type: yarn -> yarn start .
 	- Scan the QR code that given with your mobile device .
+	- or open emulator and press 'a' on terminal to set it on emulator .
+
+	
+## APK LINK DOWNLOAD ##
+
+https://exp-shell-app-assets.s3.us-west-1.amazonaws.com/android/%40meir23/IsraCard_Test-f149bf7bcd3640898871ac53436fd7bf-signed.apk
