@@ -75,4 +75,8 @@ In order to start the project:
 	
 ## APK LINK DOWNLOAD ##
 
-https://exp-shell-app-assets.s3.us-west-1.amazonaws.com/android/%40meir23/IsraCard_Test-f149bf7bcd3640898871ac53436fd7bf-signed.apk
+## IMPORTANT ## - usually the apk doesnt work because expo is abit problematic, I'd preffer if you run the app, download expo and Scan the QR code.
+
+
+1. https://exp-shell-app-assets.s3.us-west-1.amazonaws.com/android/%40shonp/IsraCard_Test-7f0aceb525814b1aab34b238fa466a29-signed.apk
+2. https://exp-shell-app-assets.s3.us-west-1.amazonaws.com/android/%40meir23/IsraCard_Test-f149bf7bcd3640898871ac53436fd7bf-signed.apk

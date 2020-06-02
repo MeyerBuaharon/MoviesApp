@@ -26,7 +26,7 @@ const Root = styled.View`
 `;
 
 const App = () => {
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
 
   const createHomeStack = () => (
     <AuthScreen isLogin={isLogin} setIsLogin={setIsLogin}></AuthScreen>
